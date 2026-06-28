@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📚 贡献指南
+    url: https://github.com/mps-team-cn/Multiple_personality_system_wiki/blob/main/CONTRIBUTING.md
+    about: 请先阅读贡献流程、写作规范与自检清单。

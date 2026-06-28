@@ -1,0 +1,145 @@
+# 生产环境配置：使用 GitHub backend
+# 本地测试时可以改为 test-repo
+
+backend:
+  name: github
+  repo: mps-team-cn/Multiple_personality_system_wiki
+  branch: main
+  # 使用 GitHub 原生认证（通过 Personal Access Token）
+  # 首次访问时会要求输入 GitHub Token
+
+# 中文本地化
+locale: zh_Hans
+
+# 站点信息
+site_url: https://wiki.mpsteam.cn
+display_url: https://wiki.mpsteam.cn
+# logo_url: /assets/logo.svg  # 暂时禁用 logo
+
+# 媒体文件配置
+media_folder: "docs/assets/uploads"
+public_folder: "/assets/uploads"
+
+# 编辑器配置
+editor:
+  preview: true
+
+# 自动化提交消息（遵循 Conventional Commits 规范）
+commit_messages:
+  create: 'docs({{collection}}): 新增词条 "{{slug}}"'
+  update: 'docs({{collection}}): 更新词条 "{{slug}}"'
+  delete: 'docs({{collection}}): 删除词条 "{{slug}}"'
+  uploadMedia: 'docs(media): 上传 "{{path}}"'
+  deleteMedia: 'docs(media): 删除 "{{path}}"'
+
+# 集合配置
+collections:
+  - name: "entries"
+    label: "词条管理"
+    label_singular: "词条"
+    description: "管理 Multiple Personality System Wiki 的词条内容"
+    folder: "docs/entries"
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    format: frontmatter
+    identifier_field: title
+    # slug 由用户手动输入英文文件名，而非从标题自动生成
+
+    # 排序和显示配置
+    sortable_fields: ['title', 'updated', 'topic']
+
+    # 视图过滤器 - 快速筛选
+    view_filters:
+      # 主题分类（保持原有）
+      - label: "理论与分类"
+        field: topic
+        pattern: '理论与分类'
+      - label: "诊断与临床"
+        field: topic
+        pattern: '诊断与临床'
+      - label: "系统运作"
+        field: topic
+        pattern: '系统运作'
+      - label: "角色与身份"
+        field: topic
+        pattern: '角色与身份'
+      - label: "文化与表现"
+        field: topic
+        pattern: '文化与表现'
+      - label: "创伤与疗愈"
+        field: topic
+        pattern: '创伤与疗愈'
+      - label: "实践指南"
+        field: topic
+        pattern: '实践指南'
+
+      # 添加特殊状态
+      - label: "📝 未分类词条"
+        field: topic
+        pattern: '^$'
+      - label: "🆕 最近更新"
+        field: updated
+        pattern: '2025'
+
+    # 视图分组 - 自动分组显示
+    view_groups:
+      - label: "主题分类"
+        field: topic
+      - label: "更新年份"
+        field: updated
+        pattern: '\d{4}'
+
+    summary: "{{title}} - {{topic}} ({{updated}})"
+
+    editor:
+      preview: true
+
+    fields:
+      - label: "标题（中文）"
+        name: "title"
+        widget: "string"
+        hint: "格式：中文（English/缩写），例如：解离性身份障碍（Dissociative Identity Disorder，DID）。注意：文件名会单独设置为英文"
+
+      - label: "主题分类"
+        name: "topic"
+        widget: "select"
+        required: false
+        default: ""
+        options:
+          - { label: "请选择主题", value: "" }
+          - { label: "理论与分类", value: "理论与分类" }
+          - { label: "诊断与临床", value: "诊断与临床" }
+          - { label: "系统运作", value: "系统运作" }
+          - { label: "角色与身份", value: "角色与身份" }
+          - { label: "文化与表现", value: "文化与表现" }
+          - { label: "创伤与疗愈", value: "创伤与疗愈" }
+          - { label: "实践指南", value: "实践指南" }
+        hint: "选择词条所属的主题分类"
+
+      - label: "标签"
+        name: "tags"
+        widget: "list"
+        required: false
+        hint: "为词条添加详细标签，如：解离、创伤、多意识体等"
+
+      - label: "同义词/别名"
+        name: "synonyms"
+        widget: "list"
+        required: false
+        hint: "添加词条的同义词、别名、英文名、拼音等，用于搜索索引优化。例如：管理者、管理员、admin"
+
+      - label: "更新时间"
+        name: "updated"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        default: ""
+        picker_utc: false
+        hint: "词条最后更新日期（创建时自动填充今天日期）"
+
+      - label: "正文内容"
+        name: "body"
+        widget: "markdown"
+        hint: "使用 Markdown 格式编写词条正文"

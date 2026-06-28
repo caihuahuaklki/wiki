@@ -1,0 +1,804 @@
+/**
+ * Multiple Personality System Wiki 自定义样式
+ * 基于 MkDocs Material 主题
+ */
+
+/* ===== 字体加载优化（零外部依赖，使用系统字体） ===== */
+/* 不依赖任何 CDN，完全使用系统内置字体，确保 100% 可用性和最快加载速度 */
+
+/* ===== 全局变量 ===== */
+:root {
+  --md-primary-fg-color: #4FC08D;
+  --md-accent-fg-color: #8B9EFF;
+
+  /* 优先使用系统内置中文字体，全平台覆盖（iOS/Android/Windows/macOS/Linux）*/
+  --md-text-font:
+    /* iOS & macOS */
+    -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+    /* Android */
+    "Noto Sans CJK SC", "Noto Sans SC", "Roboto",
+    /* Windows */
+    "Microsoft YaHei", "微软雅黑", "Segoe UI",
+    /* Linux */
+    "Source Han Sans SC", "WenQuanYi Micro Hei",
+    /* 通用后备 */
+    sans-serif;
+
+  /* 代码字体优先使用等宽系统字体，全平台优化 */
+  --md-code-font:
+    /* iOS & macOS */
+    "SF Mono", Monaco, Menlo,
+    /* Android */
+    "Roboto Mono", "Droid Sans Mono",
+    /* Windows */
+    "Cascadia Code", "Cascadia Mono", Consolas,
+    /* 通用后备 */
+    "Courier New", monospace;
+}
+
+/* ===== 深色模式优化 ===== */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #4FC08D;
+  --md-accent-fg-color: #8B9EFF;
+  --md-default-bg-color: #141B23;
+  --md-default-fg-color: #E7EDF7;
+  --md-code-bg-color: #1E2532;
+  --md-code-fg-color: #E7EDF7;
+}
+
+/* ===== 中文字体优化 ===== */
+body {
+  font-family: var(--md-text-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 标题字体 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* 代码字体 */
+code, pre {
+  font-family: var(--md-code-font);
+}
+
+/* ===== 卡片网格增强 ===== */
+.grid.cards {
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.grid.cards > * {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.grid.cards > *:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(79, 192, 141, 0.15);
+}
+
+[data-md-color-scheme="slate"] .grid.cards > * {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-md-color-scheme="slate"] .grid.cards > *:hover {
+  box-shadow: 0 8px 24px rgba(79, 192, 141, 0.25);
+}
+
+/* ===== 告示框样式增强 ===== */
+.admonition {
+  border-radius: 12px;
+  border-left-width: 4px;
+  margin: 1.2rem 0;
+  padding: 0.8rem 1rem;
+}
+
+.admonition-title {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* 警告框特殊样式 */
+.admonition.warning {
+  background: color-mix(in srgb, #F97316 8%, transparent);
+  border-left-color: #F97316;
+}
+
+[data-md-color-scheme="slate"] .admonition.warning {
+  background: color-mix(in srgb, #F97316 15%, #1E2532);
+}
+
+/* ===== 表格美化 ===== */
+.md-typeset table:not([class]) {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.md-typeset table:not([class]) th {
+  background-color: color-mix(in srgb, var(--md-primary-fg-color) 15%, transparent);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.md-typeset table:not([class]) tr:hover {
+  background-color: color-mix(in srgb, var(--md-primary-fg-color) 5%, transparent);
+}
+
+/* ===== 链接样式 ===== */
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ===== 代码块优化 ===== */
+.md-typeset pre {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.md-typeset code {
+  border-radius: 4px;
+  padding: 0.1em 0.4em;
+}
+
+/* ===== 搜索结果优化 ===== */
+.md-search-result__item {
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+.md-search-result__item:hover {
+  background-color: color-mix(in srgb, var(--md-primary-fg-color) 10%, transparent);
+}
+
+/* 修复搜索页面侧边栏显示问题 */
+/* MkDocs Material 搜索覆盖层激活时，侧边栏会被隐藏 */
+/* 以下样式确保搜索时侧边栏仍然可见 */
+
+/* 桌面端：搜索激活时保持侧边栏可见 */
+@media screen and (min-width: 76.25em) {
+  /* 搜索覆盖层激活时不隐藏主侧边栏 */
+  [data-md-toggle="search"]:checked ~ .md-container .md-sidebar--primary {
+    display: block !important;
+  }
+
+  /* 调整搜索结果容器的布局，为侧边栏留出空间 */
+  [data-md-toggle="search"]:checked ~ .md-container .md-search__output {
+    margin-left: 0;
+  }
+
+  /* 确保搜索overlay不完全覆盖侧边栏区域 */
+  .md-search__overlay {
+    left: 12.1rem; /* 与侧边栏宽度对齐 */
+  }
+}
+
+/* ===== 隐藏导航树，只显示 TOC ===== */
+/* 已注释：恢复显示左侧导航
+@media screen and (min-width: 76.25em) {
+  .md-sidebar--primary {
+    display: none;
+  }
+
+  .md-sidebar--secondary {
+    order: -1;
+    margin-left: 0;
+  }
+
+  .md-content {
+    margin-left: 0;
+  }
+}
+*/
+
+/* ===== 导航优化 ===== */
+.md-nav__item--active > .md-nav__link {
+  font-weight: 600;
+  color: var(--md-primary-fg-color);
+}
+
+.md-nav__link:hover {
+  color: var(--md-primary-fg-color);
+}
+
+/* ===== 标签样式 ===== */
+.md-tag {
+  border-radius: 999px;
+  font-size: 0.85em;
+  padding: 0.25em 0.75em;
+  font-weight: 500;
+}
+
+/* ===== 标题锚点可用性优化 ===== */
+.md-typeset :is(h1, h2, h3, h4, h5, h6) > .headerlink {
+  color: transparent;
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  margin-left: 0.35rem;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+
+.md-typeset :is(h1, h2, h3, h4, h5, h6) > .headerlink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.md-typeset :is(h1, h2, h3, h4, h5, h6) > .headerlink:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--md-accent-fg-color) 60%, transparent);
+  outline-offset: 2px;
+}
+
+/* ===== 页脚优化 ===== */
+.md-footer {
+  border-top: 1px solid color-mix(in srgb, var(--md-primary-fg-color) 20%, transparent);
+}
+
+/* ===== 目录优化 ===== */
+.md-sidebar--secondary .md-sidebar__scrollwrap {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--md-primary-fg-color) 30%, transparent) transparent;
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 6px;
+}
+
+.md-sidebar--secondary .md-sidebar__scrollwrap::-webkit-scrollbar-thumb {
+  background-color: color-mix(in srgb, var(--md-primary-fg-color) 30%, transparent);
+  border-radius: 999px;
+}
+
+/* ===== 响应式优化 ===== */
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary .md-nav__item--active > .md-nav__link {
+    background-color: color-mix(in srgb, var(--md-primary-fg-color) 10%, transparent);
+  }
+}
+
+/* ===== 动画优化 ===== */
+* {
+  scroll-behavior: smooth;
+}
+
+.md-typeset details {
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.md-typeset details summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.md-typeset details summary:hover {
+  background-color: color-mix(in srgb, var(--md-primary-fg-color) 10%, transparent);
+}
+
+/* ===== Giscus 评论区样式 ===== */
+.giscus-container {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.giscus-notice {
+  padding: 12px;
+  margin-bottom: 16px;
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+}
+
+.giscus-notice p {
+  margin: 0;
+  font-size: 14px;
+  color: #856404;
+}
+
+.giscus-fallback {
+  margin-top: 16px;
+  padding: 12px;
+  border-left: 4px solid #f44336;
+  background: #ffebee;
+  border-radius: 4px;
+}
+
+.giscus-fallback p {
+  margin: 0;
+  font-size: 14px;
+  color: #b71c1c;
+}
+
+[data-md-color-scheme="slate"] .giscus-container {
+  border-top-color: color-mix(in srgb, var(--md-default-fg-color) 20%, transparent);
+}
+
+[data-md-color-scheme="slate"] .giscus-notice {
+  background: #3a3a2a;
+  border-left-color: #ffb300;
+}
+
+[data-md-color-scheme="slate"] .giscus-notice p {
+  color: #ffd54f;
+}
+
+[data-md-color-scheme="slate"] .giscus-fallback {
+  background: color-mix(in srgb, #b71c1c 15%, #141B23);
+  border-left-color: #ef5350;
+}
+
+[data-md-color-scheme="slate"] .giscus-fallback p {
+  color: #ffcdd2;
+}
+
+
+/* ===== 最近更新列表样式 ===== */
+.recently-updated {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid rgba(142, 142, 142, 0.15);
+  border-radius: 4px;
+  font-family: var(--md-text-font);
+}
+
+.recently-updated-item {
+  display: flex;
+  align-items: center;
+}
+
+.recently-updated-item span {
+  font-size: 0.85em;
+  color: rgba(142, 142, 142, 0.5);
+  margin-right: 8px;
+  flex-shrink: 0;
+  width: 90px;
+}
+
+.recently-updated-item a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--md-primary-fg-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.recently-updated-item a:hover {
+  text-decoration: underline;
+  color: var(--md-accent-fg-color);
+}
+
+/* 深色模式优化 */
+[data-md-color-scheme="slate"] .recently-updated {
+  border-color: rgba(142, 142, 142, 0.25);
+}
+
+[data-md-color-scheme="slate"] .recently-updated-item span {
+  color: rgba(231, 237, 247, 0.5);
+}
+
+/* ===== 阅读时间提示样式 ===== */
+.reading-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  margin-bottom: 12px;
+  font-size: 0.82rem;
+  color: rgba(142, 142, 142, 0.7);
+  background: rgba(142, 142, 142, 0.06);
+  border-radius: 16px;
+  line-height: 1;
+  font-family: var(--md-text-font);
+}
+
+.reading-time svg {
+  fill: currentColor;
+}
+
+[data-md-color-scheme="slate"] .reading-time {
+  color: rgba(231, 237, 247, 0.55);
+  background: rgba(231, 237, 247, 0.06);
+}
+
+/* ===== 外部链接样式 ===== */
+a.external-link::after {
+  content: '↗';
+  margin-left: 0.25em;
+  font-size: 0.9em;
+  opacity: 0.6;
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+
+a.external-link:hover::after {
+  opacity: 1;
+}
+
+/* ===== 内容操作按钮样式优化 ===== */
+/* 查看源代码和编辑按钮 - 小巧精致设计 */
+.md-content__button {
+  color: var(--md-default-fg-color--light);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 4px;
+  padding: 0.25rem;
+  margin: 0 0.1rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.md-content__button:hover {
+  color: var(--md-primary-fg-color);
+  background-color: color-mix(in srgb, var(--md-primary-fg-color) 8%, transparent);
+}
+
+.md-content__button:focus-visible {
+  outline: 1px solid var(--md-accent-fg-color);
+  outline-offset: 1px;
+}
+
+.md-content__button svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.md-content__button:hover svg {
+  transform: scale(1.1);
+}
+
+/* 编辑按钮特殊样式 */
+.md-content__button[href*="edit"]:hover {
+  background-color: color-mix(in srgb, #10b981 8%, transparent);
+  color: #10b981;
+}
+
+/* 查看源代码按钮特殊样式 */
+.md-content__button[href*="blob"]:hover,
+.md-content__button[href*="raw"]:hover {
+  background-color: color-mix(in srgb, #3b82f6 8%, transparent);
+  color: #3b82f6;
+}
+
+/* 深色模式优化 */
+[data-md-color-scheme="slate"] .md-content__button {
+  color: var(--md-default-fg-color--lighter);
+}
+
+[data-md-color-scheme="slate"] .md-content__button:hover {
+  background-color: color-mix(in srgb, var(--md-primary-fg-color) 12%, transparent);
+}
+
+[data-md-color-scheme="slate"] .md-content__button[href*="edit"]:hover {
+  background-color: color-mix(in srgb, #10b981 12%, transparent);
+  color: #34d399;
+}
+
+[data-md-color-scheme="slate"] .md-content__button[href*="blob"]:hover,
+[data-md-color-scheme="slate"] .md-content__button[href*="raw"]:hover {
+  background-color: color-mix(in srgb, #3b82f6 12%, transparent);
+  color: #60a5fa;
+}
+
+/* 按钮工具提示 - 简洁设计 */
+.md-content__button::after {
+  content: attr(title);
+  position: absolute;
+  bottom: calc(100% + 0.4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3rem 0.6rem;
+  background-color: var(--md-default-fg-color);
+  color: var(--md-default-bg-color);
+  font-size: 0.7rem;
+  white-space: nowrap;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 1000;
+}
+
+.md-content__button:hover::after {
+  opacity: 0.9;
+}
+
+[data-md-color-scheme="slate"] .md-content__button::after {
+  background-color: var(--md-default-fg-color--lighter);
+  color: var(--md-default-bg-color);
+}
+
+/* 响应式优化 */
+@media screen and (max-width: 44.9375em) {
+  .md-content__button {
+    width: 1.6rem;
+    height: 1.6rem;
+    padding: 0.2rem;
+  }
+
+  .md-content__button svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .md-content__button::after {
+    display: none;
+  }
+}
+
+/* ===== 打印样式 ===== */
+@media print {
+  .md-header,
+  .md-sidebar,
+  .md-footer,
+  .md-nav__source,
+  .md-content__button {
+    display: none;
+  }
+
+  .md-content {
+    max-width: 100%;
+  }
+
+  /* 打印时隐藏外链图标 */
+  a.external-link::after {
+    display: none;
+  }
+}
+
+/* ===== Hero (Modern Gradient Edition) ===== */
+.mps-hero-minimal {
+  text-align: center;
+  max-width: 820px;
+  margin: 2rem auto 3rem;
+  padding: 2rem 1.8rem;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  /* 渐变背景 */
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--md-primary-fg-color) 8%, var(--md-default-bg-color)),
+      color-mix(in oklab, var(--md-accent-fg-color) 6%, var(--md-default-bg-color))
+    );
+
+  /* 边框 */
+  border: 1px solid color-mix(in oklab, var(--md-primary-fg-color) 25%, transparent);
+
+  /* 阴影层次 */
+  box-shadow:
+    0 2px 8px color-mix(in oklab, #000 15%, transparent),
+    0 8px 24px color-mix(in oklab, #000 20%, transparent),
+    inset 0 1px 0 color-mix(in oklab, #fff 8%, transparent);
+}
+
+/* 装饰性光效（可选） */
+.mps-hero-minimal::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--md-primary-fg-color) 15%, transparent) 0%,
+    transparent 70%
+  );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.mps-hero-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  margin-bottom: 0.875rem;
+  line-height: 1.35;
+  position: relative;
+  z-index: 1;
+  letter-spacing: -0.01em;
+}
+
+.mps-hero-lead {
+  line-height: 1.6;
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  color: var(--md-default-fg-color);
+  margin: 0 auto 0.75rem;
+  max-width: 680px;
+  position: relative;
+  z-index: 1;
+  opacity: 0.92;
+}
+
+.mps-hero-sub {
+  color: var(--md-default-fg-color--light);
+  font-size: clamp(0.8125rem, 1.2vw, 0.875rem);
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+  opacity: 0.82;
+}
+
+.mps-hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.875rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.mps-hero-hint {
+  font-size: clamp(0.75rem, 1vw, 0.8125rem);
+  color: var(--md-default-fg-color--light);
+  margin-top: 0;
+  position: relative;
+  z-index: 1;
+  opacity: 0.72;
+}
+
+/* 按钮增强样式 */
+.mps-hero-buttons .md-button {
+  padding: 0.625rem 1.25rem;
+  border-radius: 6px;
+  font-size: clamp(0.8125rem, 1.5vw, 0.9375rem);
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px color-mix(in oklab, #000 12%, transparent);
+}
+
+/* 主按钮 hover 效果 */
+.mps-hero-buttons .md-button--primary {
+  box-shadow:
+    0 2px 8px color-mix(in oklab, var(--md-primary-fg-color) 30%, transparent),
+    0 0 0 0 color-mix(in oklab, var(--md-primary-fg-color) 40%, transparent);
+}
+
+.mps-hero-buttons .md-button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 6px 20px color-mix(in oklab, var(--md-primary-fg-color) 35%, transparent),
+    0 0 30px color-mix(in oklab, var(--md-primary-fg-color) 20%, transparent);
+}
+
+/* 次按钮 hover 效果 */
+.mps-hero-buttons .md-button:not(.md-button--primary):hover {
+  transform: translateY(-2px);
+  border-color: var(--md-primary-fg-color);
+  background: color-mix(in oklab, var(--md-primary-fg-color) 10%, transparent);
+  box-shadow: 0 6px 16px color-mix(in oklab, #000 18%, transparent);
+}
+
+/* 响应式优化 */
+@media (max-width: 640px) {
+  .mps-hero-minimal {
+    margin: 1.25rem auto 1.75rem;
+    padding: 1.5rem 1.125rem;
+  }
+
+  .mps-hero-buttons {
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .mps-hero-buttons .md-button {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* ===== 首页顶部折叠信息卡片 ===== */
+/* 针对首页顶部的 "欢迎" 和 "对mps的解释" 折叠框 */
+/* MkDocs Material 的可折叠告示框使用 details.admonition 结构 */
+.md-typeset details.admonition.info,
+.md-typeset details.admonition.tip {
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--md-primary-fg-color) 20%, transparent);
+  background: color-mix(in oklab, var(--md-default-bg-color) 95%, var(--md-primary-fg-color) 5%);
+  box-shadow: 0 2px 8px color-mix(in oklab, #000 8%, transparent);
+  margin: 1.2rem 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.md-typeset details.admonition.info:hover,
+.md-typeset details.admonition.tip:hover {
+  border-color: color-mix(in oklab, var(--md-primary-fg-color) 35%, transparent);
+  box-shadow: 0 4px 12px color-mix(in oklab, #000 12%, transparent);
+}
+
+/* 折叠框标题样式 */
+.md-typeset details.admonition.info > summary,
+.md-typeset details.admonition.tip > summary {
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--md-primary-fg-color) 12%, transparent),
+    color-mix(in oklab, var(--md-accent-fg-color) 8%, transparent)
+  );
+  border-bottom: 1px solid color-mix(in oklab, var(--md-primary-fg-color) 15%, transparent);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.md-typeset details.admonition.info > summary:hover,
+.md-typeset details.admonition.tip > summary:hover {
+  background: linear-gradient(
+    135deg,
+    color-mix(in oklab, var(--md-primary-fg-color) 18%, transparent),
+    color-mix(in oklab, var(--md-accent-fg-color) 12%, transparent)
+  );
+}
+
+/* 折叠框内容区域 */
+.md-typeset details.admonition.info > .admonition-title ~ *,
+.md-typeset details.admonition.tip > .admonition-title ~ * {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.md-typeset details.admonition.info[open] > summary,
+.md-typeset details.admonition.tip[open] > summary {
+  margin-bottom: 0.8rem;
+}
+
+/* 图标优化 */
+.md-typeset details.admonition.info > summary::before,
+.md-typeset details.admonition.tip > summary::before {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.6rem;
+}
+
+/* 展开/收起动画 */
+.md-typeset details.admonition.info > summary::after,
+.md-typeset details.admonition.tip > summary::after {
+  transition: transform 0.3s ease;
+}
+
+.md-typeset details.admonition.info[open] > summary::after,
+.md-typeset details.admonition.tip[open] > summary::after {
+  transform: rotate(90deg);
+}
+
+/* 响应式优化 */
+@media (max-width: 640px) {
+  .md-typeset details.admonition.info > summary,
+  .md-typeset details.admonition.tip > summary {
+    padding: 0.9rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .md-typeset details.admonition.info > .admonition-title ~ *,
+  .md-typeset details.admonition.tip > .admonition-title ~ * {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+}

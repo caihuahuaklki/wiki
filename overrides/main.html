@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block htmltitle %}
+  {% if page and page.is_homepage %}
+    <title>{{ config.site_name }}</title>
+  {% else %}
+    {{ super() }}
+  {% endif %}
+{% endblock %}
+
+{% block extrahead %}
+  {{ super() }}
+
+  <!-- Favicon (多尺寸支持) -->
+  <link rel="icon" type="image/x-icon" href="{{ config.site_url }}favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ config.site_url }}assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ config.site_url }}assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="{{ config.site_url }}assets/favicon-48x48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ config.site_url }}assets/apple-touch-icon.png">
+
+  {% if page %}
+  {% set social_title = config.site_name %}
+  {% if not page.is_homepage and page.title %}
+    {% set social_title = page.title ~ " - 多意识体系统百科" %}
+  {% endif %}
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:site_name" content="Multiple Personality System Wiki - 多意识体系统百科">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  <meta property="og:title" content="{{ social_title }}">
+  <meta property="og:description" content="{% if page.meta and page.meta.description %}{{ page.meta.description }}{% else %}{{ config.site_description }}{% endif %}">
+  <meta property="og:image" content="{{ config.site_url }}assets/images/og-banner.png">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ social_title }}">
+  <meta name="twitter:description" content="{% if page.meta and page.meta.description %}{{ page.meta.description }}{% else %}{{ config.site_description }}{% endif %}">
+  <meta name="twitter:image" content="{{ config.site_url }}assets/images/twitter-banner.png">
+
+  <!-- 额外的 SEO meta 标签 -->
+  {% set base_keywords = ["多意识体系统", "解离障碍", "DID", "OSDD", "创伤疗愈", "心理健康", "Tulpa", "多意识体"] %}
+  {% if page.meta and page.meta.tags %}
+    {% set page_keywords = base_keywords + page.meta.tags[:4] %}
+  {% else %}
+    {% set page_keywords = base_keywords %}
+  {% endif %}
+  <meta name="keywords" content="{{ page_keywords[:12] | join(', ') }}">
+  <meta name="author" content="{{ config.site_author }}">
+  {# canonical 标签已由 MkDocs Material 主题自动生成，无需重复添加 #}
+  {% endif %}
+
+  {% if page and page.meta and page.meta.robots %}
+  <meta name="robots" content="{{ page.meta.robots }}">
+  {% endif %}
+
+  {# 页面级资源：由 Frontmatter 声明，避免量表 CSS/JS 全站加载。 #}
+  {% if page and page.meta and page.meta.extra_css %}
+    {% for path in page.meta.extra_css %}
+  <link rel="stylesheet" href="{{ path | url }}">
+    {% endfor %}
+  {% endif %}
+
+  {% if page and page.meta and page.meta.extra_javascript %}
+    {% for path in page.meta.extra_javascript %}
+  <script defer src="{{ path | url }}"></script>
+    {% endfor %}
+  {% endif %}
+
+  {# 将 GA Measurement ID 注入到全局，供延迟加载脚本使用 #}
+  {% if config.extra and config.extra.analytics and config.extra.analytics.property %}
+  <script>
+    window.GA_MEASUREMENT_ID = "{{ config.extra.analytics.property }}";
+  </script>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+{% endblock %}
+
+{% block analytics %}
+  {{ super() }}
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "2db8a5ada7724fce8c383cfc4d735bfc"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+{% endblock %}

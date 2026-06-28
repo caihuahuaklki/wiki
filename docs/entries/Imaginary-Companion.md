@@ -1,0 +1,131 @@
+---
+comments: true
+description: 想象性陪伴是儿童与部分成人在想象游戏、创作或内在体验中形成的陪伴性角色，多数属于非病理现象；临床上需与 DID、解离、精神病性症状和适应不良白日梦区分。
+search:
+  boost: 1.1
+synonyms:
+
+- 想象性陪伴
+- 想象朋友
+- 想象伙伴
+- 幻想伙伴
+- Imaginary Companions
+- Imaginary Companion
+- Imaginary Friends
+- Imaginative Play
+- xiangxiang peiban
+
+tags:
+
+- theory:想象性陪伴
+- sx:内部体验
+- community:多意识体
+- dx:解离性身份障碍（DID）
+
+title: 想象性陪伴（Imaginary Companions）
+topic: 理论与分类
+updated: 2026-06-02
+---
+
+# 想象性陪伴（Imaginary Companions）
+
+!!! abstract "核心要点速览"
+    想象性陪伴通常指儿童、青少年或部分成人在想象游戏、创作或内在叙事中形成的陪伴性角色。它可以表现为看不见的朋友、被人格化的玩偶、动物、物品，或内在场景中的稳定人物。多数情况下，这属于常见的非病理性发展或创造性体验，并不等同于 [DID](DID.md)、幻觉或精神病性症状。临床判断重点不在于“有没有角色”，而在于是否存在非自愿失控、记忆断裂、身份主导权变化、现实检验受损、显著痛苦或功能损害。
+
+!!! info "免责声明"
+    本站资料仅供参考，不构成医疗建议。若出现失时、明显功能受损、自伤风险或现实检验受损，请联系持证专业人员进行评估。
+
+## 概述
+
+想象性陪伴（Imaginary Companions, ICs）是发展心理学中的常见概念，通常指个体在想象游戏、内在叙事或创作活动中创造并持续互动的“陪伴性角色”。它们既可以是儿童口中的“看不见的朋友”，也可以是被人格化的玩偶、动物、虚构角色，或长期存在于私人想象世界中的人物。
+
+在儿童研究中，ICs 通常被视为正常发展现象，常与创造力、叙事组织、情绪调节和社会认知练习相关。对成人而言，内在角色、世界观角色或长期陪伴式自我对话也不自动等于病理；更需要关注的是它们是否伴随失控感、失时、现实生活受损或持续痛苦。
+
+## 常见形式
+
+- **隐形伙伴**：被描述为不可见但可互动的朋友，常见于儿童的日常游戏与自我安抚。
+- **人格化物品**：玩偶、毛绒动物、饰品或其他物品被赋予名字、性格和偏好。
+- **内在角色**：在创作、自我对话、压力应对或内在世界叙事中出现的稳定角色。
+- **世界观角色**：存在于长期构建的私人想象世界、平行设定或故事系统中的人物。
+
+## 发展心理学意义
+
+多数发展心理学研究把想象性陪伴视为常见且通常非病理的现象。它常被理解为个体练习以下能力的一种方式：
+
+- **情绪表达与安抚**：借由角色表达孤独、恐惧、愤怒或愿望。
+- **社交场景演练**：在安全情境中模拟轮流、协商、冲突与共情。
+- **叙事与象征能力**：通过角色设定、情节推进和内在对话组织经验。
+- **心理理论练习**：借助“他者”视角理解不同想法、情绪和意图。
+
+研究对流行率的估计差异较大，受定义、年龄段和询问方式影响明显，因此更稳妥的写法是：想象性陪伴在儿童中并不少见，属于常见发展现象，而不应被描述为固定比例的少数异常情况。
+
+## 与 DID 的区别
+
+想象性陪伴本身不是 [解离性身份障碍（DID）](DID.md)，也不是精神病性症状。诊断边界的关键并不只是“是否有内部角色”，而是是否出现 **非自愿性、失控性、身份主导权变化、记忆断裂、现实检验受损、显著痛苦或功能损害**。
+
+DSM-5-TR 的 DID 诊断语境强调，儿童表现如果能被想象朋友或其他幻想游戏解释，就不应直接据此下 DID 诊断。临床上因此需要把“有角色”与“有解离性身份状态”清楚区分。
+
+| 维度 | 想象性陪伴 / 想象游戏 | DID / 临床解离需关注点 |
+| --- | --- | --- |
+| 主观控制感 | 多数可主动进入、退出、调整 | 常见非自愿切换、失控感或被动侵入 |
+| 现实检验 | 通常知道这是想象、设定或游戏 | 可能伴身份混乱、现实感改变或自我感不连续 |
+| 记忆 | 一般无明显失时或断片 | 可有日常事件、个人信息或创伤相关遗忘 |
+| 功能影响 | 多为玩耍、安慰、创作或社交练习 | 可能影响学习、工作、人际、安全与日常管理 |
+| 临床意义 | 多数为正常发展或创造性体验 | 需评估创伤、解离、共病与风险 |
+
+## 与相关概念的区别
+
+- **自我状态（Ego States）**：偏向人格功能与情绪/行为模式，不一定被体验为独立角色。
+- **身份状态（Identity States）**：更接近 DID 等临床语境中的身份分化概念，强调主导权、连续性与功能影响。
+- [**图帕（Tulpa）**](Tulpa.md)：更常见于社群与实践语境，强调刻意培育、持续互动与主体性期待。
+- **适应不良白日梦（Maladaptive Daydreaming）**：重点在沉浸性幻想带来的时间占用、失控感和功能受损。
+- **精神病性幻觉**：重点在外部知觉样的体验、妄想系统及现实检验明显受损。
+
+## 创伤与解离评估中的意义
+
+想象性陪伴多数情况下不是病理指标，但在创伤与解离评估中也不能被简单忽略。一些研究提示，报告儿童期想象性陪伴的人群在解离障碍样本中可能更常见；但这并不意味着“有想象性陪伴 = 有 DID”。
+
+也有成人回顾研究发现，回忆童年存在想象性陪伴与成人期前驱性幻觉症状有关，但对其他前驱性症状并无同样的预测作用；进一步分析显示，这一关联部分由 **童年逆境** 中介。更稳妥的理解是：需要关注的风险因素更可能是逆境、创伤暴露和后续功能轨迹，而不是把想象性陪伴本身直接当作病理信号。
+
+更稳妥的临床表述是：想象性陪伴可作为访谈线索之一，帮助理解个体如何组织内在体验、应对压力、表达孤独或处理创伤相关主题；是否具有临床意义，仍需结合以下信息综合判断：
+
+- 是否有反复失时、记忆空白或行为无法解释。
+- 是否伴随创伤史、闪回、去人格化或现实解体。
+- 是否存在明显非自愿性、主导权改变或被迫互动感。
+- 是否已造成学习、工作、人际或安全方面的损害。
+
+## 何时需要进一步评估
+
+!!! warning "需要临床关注的红旗信号"
+    若想象性陪伴相关体验同时伴随反复失时、陌生物品或记录无法解释、明显身份主导权变化、自伤冲动、强烈创伤闪回、现实检验受损，或生活功能显著下降，应由熟悉解离障碍的精神科医生或心理治疗师进行系统评估。
+
+成人存在内在角色、长期陪伴式对话、私人世界观或创作性角色，并不自动等于病理。需要关注的是这些体验是否越来越失控、强迫化、侵入性增强，或是否明显替代现实生活中的功能与关系。
+
+## 临床访谈建议
+
+与其直接追问“这是真的假的”，更有用的问法通常是：
+
+- “这些角色或伙伴通常会在什么情境下出现？”
+- “你能主动开始或停止这种互动吗？”
+- “出现之后会不会有失去时间、记忆空白或行为无法解释的情况？”
+- “它们对你的生活帮助更多，还是困扰更多？”
+- “你通常把它们理解为想象、内在体验、创作设定，还是像外部现实一样存在？”
+
+这种问法更有助于区分正常想象、创造性内在角色、自我状态现象、解离性症状和精神病性体验。
+
+## 相关条目
+
+1. [解离（Dissociation）](Dissociation.md)
+2. [解离性身份障碍（DID）](DID.md)
+3. [自我状态（Ego States）](Ego-States.md)
+4. [图帕（Tulpa）](Tulpa.md)
+5. [内视（Visualization / Imagination）](Visualization-Imagination.md)
+6. [Tulpa、多意识体、系魂、想象性陪伴的区别](Tulpa-System-Soulbond-Imaginary-Companion-Differences.md)
+
+## 参考与延伸阅读
+
+1. Armah, A., & Landers-Potts, M. (2021). [A Review of Imaginary Companions and Their Implications for Development](https://journals.sagepub.com/doi/abs/10.1177/0276236621999324). *Imagination, Cognition and Personality*.
+2. Merck Manual Professional Edition. [Dissociative Identity Disorder](https://www.merckmanuals.com/professional/psychiatric-disorders/dissociative-disorders/dissociative-identity-disorder)
+3. Davis, P. E., Webster, L. A. D., Fernyhough, C., Ralston, K., Kola-Palmer, S., & Stain, H. J. (2019). [Adult report of childhood imaginary companions and adversity relates to concurrent prodromal psychosis symptoms](https://www.sciencedirect.com/science/article/pii/S0165178118318882). *Psychiatry Research, 271*, 150-152.
+4. Gleason, T. R., Jarudi, R. N., & Cheek, J. M. (2023). [The role of imaginary companion in the life of only children](https://pmc.ncbi.nlm.nih.gov/articles/PMC10652514/). *Frontiers in Psychology*.
+5. Soffer-Dudek, N., Somer, E., Abu-Rayya, H. M., Metin, B., & Schimmenti, A. (2025). [Maladaptive daydreaming should be included as a dissociative disorder in psychiatric diagnostic manuals](https://pmc.ncbi.nlm.nih.gov/articles/PMC12038384/). *British Journal of Psychiatry Open*.

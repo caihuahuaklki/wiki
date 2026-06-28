@@ -1,0 +1,322 @@
+site_name: Multiple Personality System Wiki - 多意识体系统百科
+site_url: https://wiki.mpsteam.cn/
+site_description: 专业的多意识体系统（MPS）、解离障碍（DID/OSDD）与创伤疗愈中文知识库。提供解离性身份障碍、Tulpa 创造、心理健康的全面指南与深入解析
+site_author: 脸脸系统、弦羽系统、逝水流年系统及社区贡献者
+repo_url: https://github.com/mps-team-cn/Multiple_personality_system_wiki
+repo_name: mps-team-cn/Multiple_personality_system_wiki
+copyright: Copyright &copy; 2024-2025 Multiple Personality System Wiki
+edit_uri: edit/main/docs/
+
+hooks:
+  - tools/mkdocs_hooks.py
+
+theme:
+  name: material
+  language: zh
+  custom_dir: overrides
+  favicon: assets/favicon.png
+
+  # 颜色配置
+  palette:
+    # 跟随系统
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: 切换到浅色模式
+
+    # 浅色模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+
+    # 深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: 切换到跟随系统
+
+  # 字体配置（禁用默认 Google Fonts，使用自定义加载）
+  font: false
+
+  # 图标
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/book-open-variant
+    edit: material/pencil          # 编辑按钮图标
+    view: material/eye             # 查看源代码按钮图标
+
+  # 功能特性
+  features:
+    # 导航
+    # - navigation.instant # 即时加载 (已禁用以优化性能)
+    # - navigation.instant.prefetch # 预加载 (已禁用以优化性能)
+    # - navigation.instant.progress # 显示加载进度 (已禁用以优化性能)
+    - navigation.tracking # 地址栏跟踪
+    - navigation.tabs # 顶部标签页
+    - navigation.tabs.sticky # 固定标签页
+    - navigation.sections # 导航分组
+    # - navigation.expand # 默认展开导航
+    - navigation.prune
+    - navigation.path # 面包屑导航
+    - navigation.indexes # 分组索引页
+    - navigation.top # 返回顶部按钮
+    - navigation.footer # 页脚导航
+
+    # 目录
+    - toc.follow # 目录跟随
+
+    # 搜索
+    - search.suggest # 搜索建议
+    - search.highlight # 搜索高亮
+    - search.share # 搜索分享
+
+    # 代码
+    - content.code.copy # 代码复制按钮
+    - content.code.select # 代码选择
+    - content.code.annotate # 代码注释
+
+    # 内容
+    - content.tabs.link # 内容标签链接
+    - content.tooltips # 工具提示
+    - content.footnote.tooltips # 脚注工具提示
+
+    # 其他
+    - announce.dismiss # 公告可关闭
+    # 临时禁用这两个按钮
+    - content.action.edit # ← 开启“编辑此页”图标
+    # - content.action.view # （可选）旁边再加“查看源码”
+
+# 额外配置
+extra:
+  # 社交链接
+  social:
+    - icon: material/home
+      link: https://mpsteam.cn/
+      name: MPS Team 主站
+    - icon: fontawesome/brands/github
+      link: https://github.com/mps-team-cn/Multiple_personality_system_wiki
+      name: GitHub 仓库
+
+  # Giscus 评论配置（repo_id、category_id 建议经由环境变量注入）
+  giscus:
+    repo: mps-team-cn/Multiple_personality_system_wiki
+    repo_id: !ENV GISCUS_REPO_ID
+    category: Comments
+    category_id: !ENV GISCUS_CATEGORY_ID
+    mapping: pathname
+    strict: 0
+    reactions_enabled: 1
+    emit_metadata: 0
+    input_position: top
+    theme: preferred_color_scheme
+    lang: zh-CN
+    loading: lazy
+    host: https://giscus.app
+
+  # 分析：禁用内置 Google Analytics，即改为自定义延迟加载
+  # 提示：仍保留 property，供模板注入 window.GA_MEASUREMENT_ID 使用
+  analytics:
+    # provider: google  # 已禁用，使用 docs/assets/gtm-loader.js 延迟加载
+    property: !ENV GOOGLE_ANALYTICS_KEY
+    feedback:
+      title: 这个页面有帮助吗?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: 很有帮助
+          data: 1
+          note: >-
+            感谢您的反馈!
+        - icon: material/emoticon-sad-outline
+          name: 有待改进
+          data: 0
+          note: >-
+            感谢您的反馈! 请在
+            <a href="https://github.com/mps-team-cn/Multiple_personality_system_wiki/issues" target="_blank" rel="noopener">GitHub</a>
+            提出改进建议。
+
+  # 版本控制（暂未启用，计划中）
+  # version:
+  #   provider: mike
+
+  # 替代语言（暂未启用多语言支持）
+  # alternate:
+  #   - name: 简体中文
+  #     link: /
+  #     lang: zh
+  #   - name: English
+  #     link: /en/
+  #     lang: en
+
+# 额外样式和脚本
+extra_css:
+  - assets/extra-material.css # Material 主题专用增强样式
+
+extra_javascript:
+  - assets/extra.js
+  - assets/gtm-loader.js  # GTM/GA 延迟加载
+  - assets/giscus-loader.js  # Giscus 评论加载器
+  - assets/search-phrase-default.js # 搜索短语自动加引号
+
+
+# Markdown 扩展
+markdown_extensions:
+  # Python Markdown
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      permalink_title: 链接到本节
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower-ascii
+
+  # Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: mps-team-cn
+      repo: Multiple_personality_system_wiki
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower-ascii
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.blocks.admonition
+  - pymdownx.blocks.details
+  - pymdownx.blocks.html
+  - pymdownx.blocks.definition
+  - pymdownx.blocks.tab
+
+# 插件
+plugins:
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+      lang:
+        - zh
+        - en
+      jieba_dict_user: data/user_dict.txt
+
+  # 自动生成主题分区索引页
+  - gen-files:
+      scripts:
+        - tools/build_partitions_cn.py
+
+  # 使用 SUMMARY.md 控制侧栏导航
+  - literate-nav:
+      nav_file: SUMMARY.md
+
+  # 排除搜索插件：排除没有 frontmatter 的辅助文件
+  # 注意：大部分文件已通过 frontmatter 的 search.exclude: true 排除
+  - exclude-search:
+      exclude:
+        - index-simple.md
+        - Preface.md
+        - tags.md
+        - changelog.md
+        - SUMMARY.md
+        - TEMPLATE_ENTRY.md
+        - ADMIN_GUIDE.md
+        - GITHUB_WORKFLOW.md
+        - 404.md
+      exclude_unreferenced: false
+
+  - tags
+
+  # 排除不需要发布的开发与工具目录、内部文档
+  - exclude:
+      glob:
+        - 404.md
+        - ADMIN_GUIDE.md
+        - GITHUB_WORKFLOW.md
+        - TEMPLATE_ENTRY.md
+        - dev/**
+        - tools/**
+
+  - git-revision-date-localized:
+      enabled: !ENV [CI, false]
+      enable_creation_date: true
+      type: timeago
+      timezone: Asia/Shanghai
+      locale: zh
+      fallback_to_build_date: true
+
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+      cache_safe: true
+
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
+      auto_caption: false
+      caption_position: bottom
+
+# 导航结构
+# 注意: 导航由 docs/SUMMARY.md 控制 (literate-nav 插件)
+# nav: 配置已被 SUMMARY.md 替代，以实现精简侧栏
+
+# 严格模式
+strict: false
+
+# 开发服务器
+dev_addr: 127.0.0.1:8000
+
+# 文档目录
+docs_dir: docs
+
+# 站点目录
+site_dir: site
+
+# 不需要 MkDocs 处理的文件（保持原样复制）
+not_in_nav: |
+  /admin/
